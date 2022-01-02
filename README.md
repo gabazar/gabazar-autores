@@ -1,4 +1,4 @@
-# Gabazar-autores [![Build Status](https://app.travis-ci.com/gabazar/gabazar-autores.svg?branch=main)](https://app.travis-ci.com/gabazar/gabazar-autores)
+# Gabazar-autores [![Build Status](https://app.travis-ci.com/gabazar/gabazar-autores.svg?branch=main)](https://app.travis-ci.com/gabazar/gabazar-autores) [![codecov](https://codecov.io/gh/gabazar/gabazar-autores/branch/main/graph/badge.svg?token=JOIUBJXYJ9)](https://codecov.io/gh/gabazar/gabazar-autores)
 Gabazar MS Autores
 
 ## Contexto
