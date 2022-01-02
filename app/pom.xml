@@ -16,7 +16,7 @@
 		<java.version>11</java.version>
 		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
 		<lombok.version>1.18.22</lombok.version>
-		<jacoco.version>0.8.5</jacoco.version>
+		<jacoco.version>0.8.7</jacoco.version>
 	</properties>
 	<dependencies>
 		<dependency>
