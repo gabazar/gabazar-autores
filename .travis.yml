@@ -8,3 +8,6 @@ script:
   - $TRAVIS_BUILD_DIR/install-jdk.sh -F 11 --target $JAVA_HOME
   - cd app
   - mvn clean compile install
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
