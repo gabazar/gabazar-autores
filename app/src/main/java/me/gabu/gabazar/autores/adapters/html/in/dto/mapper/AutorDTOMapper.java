@@ -19,6 +19,4 @@ public interface AutorDTOMapper {
 
     Collection<AutorDTO> autorToAutorDto(Collection<Autor> autor);
 
-    Collection<Autor> autorDtoToAutor(Collection<AutorDTO> autordto);
-
 }
