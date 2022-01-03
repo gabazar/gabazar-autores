@@ -4,15 +4,17 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import me.gabu.gabazar.autores.service.validations.Create;
 import me.gabu.gabazar.autores.service.validations.Update;
 
-@Getter
-@Setter
-@ToString
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Autor {
     private @NotNull(groups = Update.class) String id;
     private @NotNull(groups = { Update.class, Create.class }) String nome;
