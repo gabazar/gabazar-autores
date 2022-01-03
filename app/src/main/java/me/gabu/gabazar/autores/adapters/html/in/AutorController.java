@@ -38,21 +38,20 @@ public class AutorController {
     public @ResponseBody AutorDTO post(@RequestBody AutorDTO autorDTO, @RequestHeader("token") String token) {
         log.info("[POST] [/autores] Request: {}", autorDTO);
 
-        validaToken(token);
+        tokenService.validaToken(token);
 
-        Autor autor = mapper.autorDtoToAutor(autorDTO);
-        Autor autorCriada = service.criarAutor(autor, getUsuario(token));
+        Autor autor = toModel(autorDTO);
+        Autor autorCriado = service.criarAutor(autor, tokenService.recuperarUsuario(token));
 
-        return mapper.autorToAutorDto(autorCriada);
+        return toDTO(autorCriado);
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
     public @ResponseBody AutorDTO getByID(@PathVariable("id") String id, @RequestHeader("token") String token) {
         log.info("[GET] [/autores/{}]", id);
 
-        validaToken(token);
-
-        return mapper.autorToAutorDto(service.consultarAutor(id));
+        tokenService.validaToken(token);
+        return toDTO(service.consultarAutor(id));
     }
 
     @PutMapping(value = "/{id}", produces = "application/json")
@@ -60,21 +59,19 @@ public class AutorController {
             @RequestBody AutorDTO autorDTO) {
         log.info("[PUT] [/autores/{}] Request: {}", id, autorDTO);
 
-        validaToken(token);
-
-        Autor autor = mapper.autorDtoToAutor(autorDTO);
+        tokenService.validaToken(token);
+        Autor autor = toModel(autorDTO);
         autor.setId(id);
 
-        return mapper.autorToAutorDto(service.atualizarAutor(autor, getUsuario(token)));
+        return toDTO(service.atualizarAutor(autor, tokenService.recuperarUsuario(token)));
     }
 
     @DeleteMapping(value = "/{id}", produces = "application/json")
     public ResponseEntity<AutorDTO> delete(@PathVariable("id") String id, @RequestHeader("token") String token) {
         log.info("[DELETE] [/autores/{}]", id);
 
-        validaToken(token);
-
-        service.apagarAutor(id, getUsuario(token));
+        tokenService.validaToken(token);
+        service.apagarAutor(id, tokenService.recuperarUsuario(token));
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
@@ -82,16 +79,21 @@ public class AutorController {
     @GetMapping
     public @ResponseBody Collection<AutorDTO> get(@RequestParam(required = false) String nome,
             @RequestHeader("token") String token) {
-        validaToken(token);
-
-        return mapper.autorToAutorDto(service.listarAutores(nome));
-    }
-
-    private String getUsuario(String token) {
-        return tokenService.recuperarUsuario(token);
-    }
-
-    private void validaToken(String token) {
         tokenService.validaToken(token);
+
+        return toDTO(service.listarAutores(nome));
     }
+
+    protected Collection<AutorDTO> toDTO(Collection<Autor> autorCriada) {
+        return mapper.autorToAutorDto(autorCriada);
+    }
+
+    protected AutorDTO toDTO(Autor autorCriada) {
+        return mapper.autorToAutorDto(autorCriada);
+    }
+
+    protected Autor toModel(AutorDTO autorDTO) {
+        return mapper.autorDtoToAutor(autorDTO);
+    }
+
 }
