@@ -4,20 +4,25 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import me.gabu.gabazar.autores.service.validations.Create;
 import me.gabu.gabazar.autores.service.validations.Update;
 
-@Getter
-@Setter
-@ToString
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Autor {
-    private @NotNull(groups = Update.class) String id;
-    private @NotNull(groups = { Update.class, Create.class }) String nome;
-    private @NotNull(groups = { Update.class, Create.class }) String nacionalidade;
-    private @NotNull(groups = { Update.class, Create.class }) String site;
+
+    private static final String MSG_NULO = "não deve ser nulo";
+
+    private @NotNull(groups = Update.class, message = MSG_NULO) String id;
+    private @NotNull(groups = { Update.class, Create.class }, message = MSG_NULO) String nome;
+    private @NotNull(groups = { Update.class, Create.class }, message = MSG_NULO) String nacionalidade;
+    private @NotNull(groups = { Update.class, Create.class }, message = MSG_NULO) String site;
     private Date dataCriacao;
     private Date dataAlteracao;
     private String usuarioCriacao;
