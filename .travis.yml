@@ -6,17 +6,13 @@ branches:
   - main
   - develop
 
-addons:
-  sonarcloud:
-    organization: "gabazar"
-
 script:
   - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
   - chmod +x $TRAVIS_BUILD_DIR/install-jdk.sh
   - export JAVA_HOME=$HOME/openjdk11
   - $TRAVIS_BUILD_DIR/install-jdk.sh -F 11 --target $JAVA_HOME
   - cd app
-  - mvn clean compile install sonar:sonar
+  - mvn clean compile install
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
