@@ -12,7 +12,7 @@ import lombok.Getter;
 public class BadRequestException extends RuntimeException {
 
     @Getter
-    private Collection<String> messages;
+    private final Collection<String> messages;
 
     public BadRequestException(String mensagem) {
         super(mensagem);
