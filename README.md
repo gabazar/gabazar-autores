@@ -15,3 +15,15 @@ Esse serviço faz parte do projeto [Gabazar](https://github.com/gabazar/gabazar)
 O serviço utiliza arquitetura hexagonal, todas a integrações externas (controllers, clients, repositories...) estão no pacote de adapters e as regras de negocio estão isoladas no pacote core. 
 
 Contratos externos (ex.: APIs e eventos) não devem ter interação com as regras de negocio, eles devem ser mapeados para uma entidade do dominio e consequentemente enviados para o serviço / caso de uso correspondente.
+
+## Checks
+
+- [X] API CRUD do dominio de Autores
+- [X] Validação automatica de campos da API
+- [X] Handler de exceptions da API
+- [X] Configuração esteira Travis
+- [X] Configuração esteira GitHub Actions
+- [X] Configuração de cobertura Codecov
+- [ ] FeignClient do Livros
+- [ ] Implementação de serviço de autenticação
+- [ ] Swagger
