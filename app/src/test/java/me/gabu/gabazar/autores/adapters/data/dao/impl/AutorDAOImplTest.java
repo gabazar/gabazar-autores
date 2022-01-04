@@ -2,6 +2,7 @@ package me.gabu.gabazar.autores.adapters.data.dao.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -66,7 +67,6 @@ class AutorDAOImplTest {
 
         verify(repository, times(1)).findById(AUTOR_ID);
     }
-    
 
     @Test
     void save() {
@@ -91,7 +91,6 @@ class AutorDAOImplTest {
         verify(repository, times(1)).findAll();
     }
 
-
     @Test
     void findByNome() {
         when(repository.findByNome(NOME)).thenReturn(Arrays.asList(entity));
@@ -102,7 +101,6 @@ class AutorDAOImplTest {
 
         verify(repository, times(1)).findByNome(NOME);
     }
-
 
     @Test
     void update() {
@@ -116,5 +114,14 @@ class AutorDAOImplTest {
         verify(repository, times(1)).save(entity);
     }
 
+    @Test
+    void delete() {
+        doNothing().when(repository).deleteById(AUTOR_ID);
+
+        model.setId(AUTOR_ID);
+        dao.delete(model);
+
+        verify(repository, times(1)).deleteById(AUTOR_ID);
+    }
 
 }
