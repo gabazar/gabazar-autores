@@ -1,4 +1,4 @@
-package me.gabu.gabazar.autores.adapters.html.in;
+package me.gabu.gabazar.autores.adapters.http.in;
 
 import java.util.Collection;
 
@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
-import me.gabu.gabazar.autores.adapters.html.in.dto.AutorDTO;
-import me.gabu.gabazar.autores.adapters.html.in.dto.mapper.AutorDTOMapper;
+import me.gabu.gabazar.autores.adapters.http.in.dto.AutorDTO;
+import me.gabu.gabazar.autores.adapters.http.in.dto.mapper.AutorDTOMapper;
 import me.gabu.gabazar.autores.core.model.Autor;
 import me.gabu.gabazar.autores.service.AutorService;
 import me.gabu.gabazar.autores.service.TokenService;

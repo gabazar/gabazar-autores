@@ -1,11 +1,11 @@
-package me.gabu.gabazar.autores.adapters.html.in.dto.mapper;
+package me.gabu.gabazar.autores.adapters.http.in.dto.mapper;
 
 import java.util.Collection;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import me.gabu.gabazar.autores.adapters.html.in.dto.AutorDTO;
+import me.gabu.gabazar.autores.adapters.http.in.dto.AutorDTO;
 import me.gabu.gabazar.autores.core.model.Autor;
 
 @Mapper

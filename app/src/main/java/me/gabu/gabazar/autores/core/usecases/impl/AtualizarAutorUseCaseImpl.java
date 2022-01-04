@@ -24,7 +24,7 @@ public class AtualizarAutorUseCaseImpl implements AtualizarAutorUseCase {
         Autor registroAnterior = consultarUC.run(autor.getId());
 
         validator.validate(autor, ValidationEnum.UPDATE);
-        log.info("[USECASE] [UPDATE]\nRegistro anterior: {} \nRegistro recebido:{}", registroAnterior, autor);
+        log.info("[USECASE] [UPDATE]\nRegistro anterior: {} \nRegistro recebido: {}", registroAnterior, autor);
 
         autor.setUsuarioAlteracao(usuario);
         autor.setUsuarioCriacao(registroAnterior.getUsuarioCriacao());

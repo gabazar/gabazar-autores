@@ -1,4 +1,4 @@
-package me.gabu.gabazar.autores.adapters.html.in;
+package me.gabu.gabazar.autores.adapters.http.in;
 
 import java.util.Arrays;
 import java.util.Collection;

@@ -18,37 +18,36 @@ import me.gabu.gabazar.autores.core.model.Autor;
 public class AutorDAOImpl implements AutorDAO {
 
     private @Autowired AutorRepository repository;
-    private AutorEntityMapper mapper = AutorEntityMapper.INSTANCE;
 
     @Override
     public Autor findById(String id) {
         AutorEntity enditoraEntity = repository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Autor não encontrado"));
-        return mapper.autorEntityToAutor(enditoraEntity);
+        return getMapper().autorEntityToAutor(enditoraEntity);
     }
 
     @Override
     public Autor save(Autor autor) {
-        AutorEntity enditoraEntity = mapper.autorToAutorEntity(autor);
+        AutorEntity enditoraEntity = getMapper().autorToAutorEntity(autor);
         log.info("[DAO] [PERSIST] [{}]", autor);
-        return mapper.autorEntityToAutor(repository.save(enditoraEntity));
+        return getMapper().autorEntityToAutor(repository.save(enditoraEntity));
     }
 
     @Override
     public Collection<Autor> listAll() {
-        return mapper.autorEntityToAutor(repository.findAll());
+        return getMapper().autorEntityToAutor(repository.findAll());
     }
 
     @Override
     public Collection<Autor> findByNome(String name) {
-        return mapper.autorEntityToAutor(repository.findByNome(name));
+        return getMapper().autorEntityToAutor(repository.findByNome(name));
     }
 
     @Override
     public Autor update(Autor autor) {
-        AutorEntity enditoraEntity = mapper.autorToAutorEntity(autor);
+        AutorEntity enditoraEntity = getMapper().autorToAutorEntity(autor);
         log.info("[DAO] [UPDATE] [{}]", autor);
-        return mapper.autorEntityToAutor(repository.save(enditoraEntity));
+        return getMapper().autorEntityToAutor(repository.save(enditoraEntity));
     }
 
     @Override
@@ -56,4 +55,7 @@ public class AutorDAOImpl implements AutorDAO {
         repository.deleteById(autor.getId());
     }
 
+    protected AutorEntityMapper getMapper() {
+        return AutorEntityMapper.INSTANCE;
+    }
 }
