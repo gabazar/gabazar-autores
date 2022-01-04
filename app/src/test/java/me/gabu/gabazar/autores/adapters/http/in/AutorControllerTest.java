@@ -1,4 +1,4 @@
-package me.gabu.gabazar.autores.adapters.html.in;
+package me.gabu.gabazar.autores.adapters.http.in;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doNothing;
@@ -22,7 +22,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import me.gabu.gabazar.autores.adapters.html.in.dto.AutorDTO;
+import me.gabu.gabazar.autores.adapters.http.in.dto.AutorDTO;
 import me.gabu.gabazar.autores.core.model.Autor;
 import me.gabu.gabazar.autores.service.AutorService;
 import me.gabu.gabazar.autores.service.TokenService;
