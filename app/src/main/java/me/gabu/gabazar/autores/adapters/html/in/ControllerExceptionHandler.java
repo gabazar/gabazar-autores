@@ -21,14 +21,8 @@ import me.gabu.gabazar.autores.core.exceptions.NotFoundException;
 @ControllerAdvice
 public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(Exception.class)
-    public final ResponseEntity<ErrorData> handleAllExceptions(Exception ex, WebRequest request) {
-        return buildErrorData(ex, ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, request);
-    }
-
     @ExceptionHandler(NotFoundException.class)
     public final ResponseEntity<ErrorData> handleNotFoundException(NotFoundException ex, WebRequest request) {
-        request.getContextPath();
         return buildErrorData(ex, ex.getMessage(), HttpStatus.NOT_FOUND, request);
     }
 
@@ -40,6 +34,11 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(AccessException.class)
     public final ResponseEntity<ErrorData> handleAccessException(AccessException ex, WebRequest request) {
         return buildErrorData(ex, ex.getMessage(), HttpStatus.UNAUTHORIZED, request);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public final ResponseEntity<ErrorData> handleAllExceptions(Exception ex, WebRequest request) {
+        return buildErrorData(ex, ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
     private ResponseEntity<ErrorData> buildErrorData(Exception ex, String message, HttpStatus status,
@@ -54,7 +53,7 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorData, status);
     }
 
-    private String getPath(WebRequest request) {
+    protected String getPath(WebRequest request) {
         return ((ServletWebRequest) request).getRequest().getServletPath();
     }
 }
