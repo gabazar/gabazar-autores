@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import me.gabu.gabazar.autores.adapters.html.in.AutorController;
+import me.gabu.gabazar.autores.adapters.http.in.AutorController;
 import me.gabu.gabazar.autores.core.usecases.ApagarAutorUseCase;
 import me.gabu.gabazar.autores.core.usecases.AtualizarAutorUseCase;
 import me.gabu.gabazar.autores.core.usecases.ConsultarAutorUseCase;
