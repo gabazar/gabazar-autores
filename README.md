@@ -1,7 +1,12 @@
 # Gabazar-autores
-[![Build Status](https://app.travis-ci.com/gabazar/gabazar-autores.svg?branch=main)](https://app.travis-ci.com/gabazar/gabazar-autores)
+[![Build](https://github.com/gabazar/gabazar-autores/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/gabazar/gabazar-autores/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/gabazar/gabazar-autores/branch/main/graph/badge.svg?token=JOIUBJXYJ9)](https://codecov.io/gh/gabazar/gabazar-autores)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=gabazar_gabazar-autores&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=gabazar_gabazar-autores) 
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=gabazar_gabazar-autores&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=gabazar_gabazar-autores) 
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=gabazar_gabazar-autores&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=gabazar_gabazar-autores) 
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=gabazar_gabazar-autores&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=gabazar_gabazar-autores)
 
 ## Contexto
 Esse serviço faz parte do projeto [Gabazar](https://github.com/gabazar/gabazar), esse serviço atende o dominio de Autores.
