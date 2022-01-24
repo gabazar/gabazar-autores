@@ -26,4 +26,4 @@ Contratos externos (ex.: APIs e eventos) não devem ter interação com as regra
 - [X] Configuração de cobertura Codecov
 - [ ] FeignClient do Livros
 - [ ] Implementação de serviço de autenticação
-- [ ] Swagger
+- [X] Swagger
